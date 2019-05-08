@@ -1,11 +1,11 @@
 ---
 # Create Users with password for ssh access
 - name: Create users
-  hosts: all
+  hosts: All
   become: yes
   environment:
    PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
   roles:
-  - { role: users, tags: ["users"] }
+    - users
 
 # Host can be specified here or a list of hosts can be specified in an inventory file and use it for execution.
