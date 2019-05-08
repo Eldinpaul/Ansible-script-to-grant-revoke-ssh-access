@@ -1,0 +1,31 @@
+---
+ - name: make sure that group exists
+   group:
+     name: "developers"
+     state: present
+
+# This can be used if the group requires sudo permissions else this can be removed
+
+ - name: enable sudo access for group
+   lineinfile:
+    dest: /etc/sudoers
+    line: '%developers ALL=(ALL) NOPASSWD: ALL'
+    backup: yes
+
+ - name: Add users
+   user:
+    name: "{{ item.key }}"
+    password: "{{ item.value.password }}"
+    group: "{{ item.value.group }}"
+    shell: "{{ item.value.shell }}"
+    remove: "{{ item.value.remove }}"
+    state: "{{ item.value.state }}"
+    update_password: always
+   with_dict: "{{ ssh_users }}"
+
+ - name: Add ssh Keys
+   authorized_key:
+     user: "{{ item.key }}"
+     key: "{{ item.value.key }}"
+     state: "{{ item.value.state }}"
+   with_dict: "{{ ssh_users }}"

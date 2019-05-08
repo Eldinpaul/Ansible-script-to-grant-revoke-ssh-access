@@ -1,0 +1,11 @@
+---
+# Enable users to use ssh key based authentication
+- name: Add ssh keys for users
+  hosts: all
+  become: yes
+  environment:
+   PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+  roles:
+  - { role: userkey, tags: ["userkey"] }
+
+# Host can be specified here or a list of hosts can be specified in an inventory file and use it for execution.

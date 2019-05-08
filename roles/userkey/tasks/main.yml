@@ -1,0 +1,10 @@
+---
+# tasks file for userkey
+- name: Add ssh Keys
+  authorized_key:
+    user: "{{ item.name }}"
+    key: "{{ item.key }}"
+    state: "{{ item.state }}"
+  ignore_errors: yes
+  with_items:
+  - "{{ ssh_users }}"

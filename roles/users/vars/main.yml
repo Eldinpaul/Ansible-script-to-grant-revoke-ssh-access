@@ -1,0 +1,12 @@
+---
+ssh_users:
+ eldin:
+   comment: "Eldin Paul"
+   group: developers
+   password: ERyIzMQPp82NU
+   shell: /bin/bash
+   remove: no
+   state: present
+   key: "{{ lookup('file', 'eldin_rsa.pub') }}"
+
+# New users details can be added here
