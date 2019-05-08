@@ -1,8 +1,0 @@
----
-# vars file for userkey
-ssh_users:
-  - name: eldin
-    key: "{{ lookup('file', 'eldin_rsa.pub') }}"
-    state: present
-
-# New users can be added here
