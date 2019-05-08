@@ -19,7 +19,7 @@ user:
   state: present
   key: "{{ lookup('file', 'username_rsa.pub') }}"
 
-  To encrypt the password you can follow either of the below methods. Password is optional.
+  To generate a crypted password you can follow either one of the below methods. However password is optional.
 
   1) https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
   2) Use perl -e 'print crypt("your password here", "pepper"),"\n"'
