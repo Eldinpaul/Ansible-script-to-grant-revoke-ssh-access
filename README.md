@@ -38,4 +38,4 @@ user:
 
 To run the playbook execute the below command:
 
-ansible-playbook -i inventory/ add_users.yml
+ansible-playbook -i inventory/ playbook/add_users.yml
